@@ -1,4 +1,4 @@
-# Bunny::Rails
+# BunnyOnRails
 Short description and motivation.
 
 ## Usage
@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "bunny-rails"
+gem "bunny-on-rails"
 ```
 
 And then execute:
