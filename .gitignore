@@ -6,3 +6,4 @@
 test/dummy/log
 test/dummy/tmp
 Gemfile.lock
+.yardoc

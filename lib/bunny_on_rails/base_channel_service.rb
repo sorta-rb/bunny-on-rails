@@ -18,6 +18,7 @@ module BunnyOnRails
 
       private
 
+      # Define subscribtion callback
       def on_recieve(&block)
         define_method(:recieved) do |message, properties, delivery_info|
           Rails.application.reloader.wrap do

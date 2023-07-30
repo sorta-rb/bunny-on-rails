@@ -5,5 +5,8 @@ AllCops:
   Exclude:
     - bin/*
 
+Metrics/AbcSize:
+  Enabled: false
+
 Metrics/MethodLength:
   CountAsOne: ['heredoc']

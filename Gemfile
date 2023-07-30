@@ -9,6 +9,9 @@ gemspec
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
+  gem 'webrick'
+  gem 'yard'
+
   gem 'puma'
   gem 'sqlite3'
 
