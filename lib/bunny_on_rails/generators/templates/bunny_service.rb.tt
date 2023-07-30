@@ -1,6 +1,6 @@
-class <%= class_name %>Service < ::BunnyOnRails::BaseService
+class <%= class_name %>Service < ::BunnyOnRails::BaseChannelService
   channel { ApplicationGateway.connection.create_channel }
-  exchange { channel.exchange }
+  exchange { channel.exchange("<%= singular_name %>") }
   queue { channel.queue }
 
   on_recieve do |message, _properties, _delivery_info|

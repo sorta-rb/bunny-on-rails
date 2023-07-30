@@ -2,9 +2,9 @@
 
 module BunnyOnRails
   class BaseChannelService < BunnyOnRails::BaseService
-    threaded_initializer :channel, private: true
-    threaded_initializer :exchange, private: true
-    threaded_initializer :queue, private: true
+    threaded_initializer :channel
+    threaded_initializer :exchange
+    threaded_initializer :queue
 
     class << self
       def init!
@@ -19,11 +19,12 @@ module BunnyOnRails
       private
 
       def on_recieve(&block)
-        private define_method(:recieved) do |message, properties, delivery_info|
+        define_method(:recieved) do |message, properties, delivery_info|
           Rails.application.reloader.wrap do
             block.yield(message, properties, delivery_info)
           end
         end
+        private :recieved
       end
     end
   end

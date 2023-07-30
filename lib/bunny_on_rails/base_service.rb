@@ -20,11 +20,13 @@ module BunnyOnRails
 
       private
 
-      def threaded_initializer(name, private: false)
+      def threaded_initializer(name)
         define_singleton_method(name) do |&block|
-          Thread.current[:"#{self.class.name}_#{name}"] ||= instance_eval(&block)
+          define_method(name) do
+            Thread.current[:"#{self.class.name}_#{name}"] ||= instance_eval(&block)
+          end
         end
-        private_class_method name if private
+        private_class_method name
       end
 
       def forward!(method)

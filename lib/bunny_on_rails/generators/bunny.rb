@@ -6,12 +6,13 @@ module Bunny
     check_class_collision suffix: 'Service'
 
     def make_service
-      say_status 'status', 'hello'
-      template 'bunny_service.rb.tt', "app/services/#{file_name}.rb"
+      template 'bunny_service.rb.tt', "app/services/#{file_name}_service.rb"
     end
 
     def add_service_to_initializer
-      insert_into_file 'config/application.rb', "#{class_name}.setup!", after: 'ApplicationGateway.setup!'
+      say_status 'change', 'Insert initializer into config/application.rb'
+      insert_into_file 'config/application.rb', (' ' * 6) + "#{class_name}Service.init!\n",
+                       after: "ApplicationGateway.init!\n"
     end
   end
 
@@ -22,7 +23,8 @@ module Bunny
 
     def create_default_config
       template 'bunny.yml', 'config/bunny.yml'
-      say 'Insert configuration into config/application.rb'
+
+      say_status 'change', 'Insert configuration into config/application.rb'
       environment <<-RUBY
         config.after_initialize do
           ApplicationGateway.init!
