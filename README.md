@@ -1,24 +1,24 @@
 # BunnyOnRails
-Short description and motivation.
+Bunny adapter for Rails enabling you to create in-process AMQP consumers and producers
 
 ## Usage
-How to use my plugin.
+```sh
+$ bin/rails generate bunny foo
+```
+This will create a service scaffold in `app/services/foo_service.rb` and add it's initializer
+to `config/application.rb` `after_initialize` block.
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "bunny-on-rails"
+gem 'bunny-on-rails'
 ```
 
 And then execute:
-```bash
+```sh
 $ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install bunny-rails
+$ bundle exec rails generate bunny:install
 ```
 
 ## Contributing

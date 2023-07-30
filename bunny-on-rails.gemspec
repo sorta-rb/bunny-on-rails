@@ -3,7 +3,7 @@
 require_relative 'lib/bunny_on_rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = 'bunny-rails'
+  spec.name        = 'bunny-on-rails'
   spec.version     = BunnyOnRails::VERSION
   spec.authors     = ['Ivan Chinenov']
   spec.email       = ['hjvt@hjvt.dev']
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   # spec.metadata["changelog_uri"] = "TODO"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+    Dir['lib/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   end
 
   spec.add_dependency 'bunny'
