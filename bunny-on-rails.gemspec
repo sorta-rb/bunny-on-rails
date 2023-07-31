@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir['lib/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   end
+  spec.require_path = 'lib'
 
   spec.add_dependency 'bunny'
   spec.add_dependency 'rails', '~> 7'
