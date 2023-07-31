@@ -11,7 +11,7 @@ module BunnyOnRails
         @instance ||= instance
         @instance.queue.bind(@instance.exchange)
         @instance.queue.subscribe do |delivery_info, properties, message|
-          @instance.on_receive(message, properties, delivery_info)
+          @instance.send(:on_receive, message, properties, delivery_info)
         end
         ready?
       end
